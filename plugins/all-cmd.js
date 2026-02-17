@@ -5,7 +5,6 @@ const os = require('os');
 const axios = require('axios');
 const yts = require('yt-search');
 const moment = require('moment-timezone');
-const { sleep } = require('../lib/functions');
 const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const startPair = require('../pair');
 
@@ -286,7 +285,7 @@ cmd({
   if(!isGroup) return reply("Group only");
 
   reply("Bye 👋");
-  await sleep(1000);
+  await new Promise(r => setTimeout(r, 1000));
   await conn.groupLeave(from);
 
 });
