@@ -1,3 +1,10 @@
+process.on("uncaughtException", (err) => {
+   console.log("❌ Erreur:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+   console.log("❌ Promise Error:", err);
+});
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
